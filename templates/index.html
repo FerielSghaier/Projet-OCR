@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Classification</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #B384A7;
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 0;
+            font-size: 28px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        form {
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #81657C;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #81657C;
+        }
+
+        h2 {
+            margin-top: 20px;
+            color: #2c3e50;
+            font-size: 24px;
+        }
+
+        p {
+            color: #777;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Classification des Documents PDF</h1>
+
+        <form method="POST" enctype="multipart/form-data">
+            <label for="file">Choisir un fichier PDF:</label>
+            <input type="file" name="file" accept=".pdf" required>
+            <button type="submit">Soumettre</button>
+        </form>
+
+        {% if category %}
+        <h2>Document Category:</h2>
+        <p>{{ category }}</p>
+        {% endif %}
+
+        {% if extracted_text %}
+        <h2>Extracted Text:</h2>
+        <p>{{ extracted_text }}</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>
